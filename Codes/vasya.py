@@ -1,6 +1,10 @@
 import os
 import time
 
+'''
+Переименовываем видео файлы, записывая дату создания
+в имя
+'''
 direct = os.getcwd()
 files = os.listdir(direct)
 for i in files:
