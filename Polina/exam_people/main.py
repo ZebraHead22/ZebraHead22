@@ -1,12 +1,12 @@
 import os
 import sys
 import pandas as pd
-import Ui_infogypsies
+import Ui_infogypsies_time
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
 
 
-class MainApplication(QtWidgets.QMainWindow, Ui_infogypsies.Ui_ExamPeople):
+class MainApplication(QtWidgets.QMainWindow, Ui_infogypsies_time.Ui_ExamPeople):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -16,6 +16,7 @@ class MainApplication(QtWidgets.QMainWindow, Ui_infogypsies.Ui_ExamPeople):
         self.process_btn.clicked.connect(self.process)
         self.export_btn.clicked.connect(self.export)
         self.exit_btn.clicked.connect(self.exit)
+        self.const_time.setChecked(True) 
 
     def browse(self):
         self.file = QtWidgets.QFileDialog.getOpenFileName()[0]
@@ -32,7 +33,7 @@ class MainApplication(QtWidgets.QMainWindow, Ui_infogypsies.Ui_ExamPeople):
         self.df = self.df.sort_index()
         self.df = self.df.reset_index()
         names = self.df['Name'].to_list()
-
+        #Если человек заходит с разных устройств
         def rename(lst):
             for i in range(len(lst)-1):
                 if lst[i] != 'iPhone':
@@ -46,18 +47,24 @@ class MainApplication(QtWidgets.QMainWindow, Ui_infogypsies.Ui_ExamPeople):
         self.df = self.df.reset_index()
         self.df['Минуты присутствия'] = self.df['Время на занятии'].dt.total_seconds().div(
             60).astype(int)
-
+        #Время занятия и минимальное время присутствия для зачета
+        if self.const_time.isChecked():
+            self.compare_time = 90
+        else:
+            self.compare_time = self.lesson_time.value() * (self.persent.value() * 0.01)
+        #Делаем сравнение
         def normalise_row(row):
-            if row['Минуты присутствия'] >= 55:
+            if row['Минуты присутствия'] >= self.compare_time:
                 result = 'Зачет'
             else:
                 result = 'Не зачет'
             return result
         self.df['Оценка присутствия'] = self.df.apply(
             lambda row: normalise_row(row), axis=1)
+        #Удаляем лишние столбцы
         self.df = self.df.drop(['Электронная почта пользователя', 'Время входа', 'Время выхода', 'Продолжительность (минуты)',
                       'Гость', 'Согласие на запись', 'В зале ожидания', 'Время на занятии'], axis=1)
-
+        #Настраиваем таблицу
         headers = self.df.columns.values.tolist()
         self.people_table.setColumnCount(len(headers))
         self.people_table.setHorizontalHeaderLabels(headers)
@@ -65,7 +72,7 @@ class MainApplication(QtWidgets.QMainWindow, Ui_infogypsies.Ui_ExamPeople):
         header.setSectionResizeMode(0, QHeaderView.Stretch)
         header.setSectionResizeMode(1, QHeaderView.ResizeToContents)
         header.setSectionResizeMode(2, QHeaderView.ResizeToContents)
-
+        #Заполняем таблицу
         for i, row in self.df.iterrows():
             self.people_table.setRowCount(self.people_table.rowCount() + 1)
             for j in range(self.people_table.columnCount()):
