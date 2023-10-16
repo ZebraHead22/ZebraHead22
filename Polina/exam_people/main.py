@@ -24,8 +24,9 @@ class MainApplication(QtWidgets.QMainWindow, Ui_infogypsies_time.Ui_ExamPeople):
         self.filename, self.file_extension = os.path.splitext(self.file)
 
     def process(self):
-        self.df = pd.read_csv(self.file,
-                         delimiter=',', index_col=None)
+        self.df1 = pd.read_excel(self.file, index_col=None)
+        self.df = self.df1.iloc[:, 0].str.split(',', expand=True)
+        self.df.columns = [n.replace('"', '') for n in self.df1.columns.str.split(',')[0]]
         self.df['Время на занятии'] = (pd.to_datetime(self.df['Время выхода'], format='%d.%m.%Y %H:%M:%S %p')
                                   - pd.to_datetime(self.df['Время входа'], format='%d.%m.%Y %H:%M:%S %p'))
         self.df = self.df.rename(columns={'Имя (настоящее имя)': 'Name'})
