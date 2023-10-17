@@ -42,6 +42,7 @@ class MainApplication(QtWidgets.QMainWindow, Ui_infogypsies_time.Ui_ExamPeople):
                         lst[i+1] = lst[i]
             return lst
         rename(names)
+        
         self.df['Name'] = names
         self.df = self.df.set_index('Name')
         self.df = self.df.groupby(level='Name').sum(numeric_only=False)

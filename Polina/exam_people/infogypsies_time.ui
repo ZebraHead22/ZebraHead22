@@ -24,7 +24,7 @@
     <item>
      <widget class="QLabel" name="csvfile_label">
       <property name="text">
-       <string>Browse .CSV file</string>
+       <string>Browse .xlsx file</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
