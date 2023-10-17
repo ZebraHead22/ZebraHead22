@@ -24,7 +24,7 @@
     <item>
      <widget class="QLabel" name="csvfile_label">
       <property name="text">
-       <string>Browse .xlsx file</string>
+       <string>Browse .csv or.xlsx file</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -114,7 +114,7 @@
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
         <property name="maximum">
-         <number>240</number>
+         <number>360</number>
         </property>
         <property name="singleStep">
          <number>5</number>
