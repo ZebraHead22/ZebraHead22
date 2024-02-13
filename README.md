@@ -8,7 +8,7 @@
 
 I'm a researcher with a Ph.D. in Theoretical Physics 👨🏼‍🎓   
 * Research interests: Molecular Simuation, Electronics 🧬
-* Develop interesrs: Data Science, Desktop Applications 🖥️
+* Develop interests: Data Science, Desktop Applications 🖥️
 * My courses: Informatics, Theory of Electrical Circuits, Computing Systems Theory, Tomography 👨🏼‍🏫
   
 
