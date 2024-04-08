@@ -12,3 +12,6 @@ I'm a researcher with a Ph.D. in Theoretical Physics 👨🏼‍🎓
 * My courses: Informatics, Theory of Electrical Circuits, Computing Systems Theory, Tomography 👨🏼‍🏫
   
 
+My papers:
+* [Google Scholar](https://scholar.google.ru/citations?user=JRYvIG8AAAAJ&hl=ru)
+* [Scopus](https://www.scopus.com/authid/detail.uri?authorId=56988988800)
