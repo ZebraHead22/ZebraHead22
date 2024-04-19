@@ -11,7 +11,7 @@ About me
 * I'm currently learning SQL, PostgreSQL, MongoDB 🔡
 * I regularly write scientific articles 📗
 * Research interests: Molecular Simuation, Electronics 🧬
-* Develop interests: Data Science, Desktop Applications 🖥️
+* Develop interests: Data engineering, Data Science, Desktop Applications 🖥️
 * My courses: Informatics, Theory of Electrical Circuits, Computing Systems Theory, Tomography 👨🏼‍🏫
 * I speak Russian, English 🗺️
   
