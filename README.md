@@ -41,6 +41,7 @@ You can explore my scientific contributions here:
 
 🔗 [Google Scholar](https://scholar.google.ru/citations?user=JRYvIG8AAAAJ&hl=ru)  
 🔗 [Scopus Profile](https://www.scopus.com/authid/detail.uri?authorId=56988988800)
+🔗 [Web of Science Profile](https://orcid.org/0000-0003-4555-0009))
 
 ---
 
